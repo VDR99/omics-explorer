@@ -60,4 +60,3 @@ Valid types: `protein_npx`, `sample_metadata`, `categorical_metadata`, `unknown`
 Built as the MVP layer of a larger goal: a queryable SQL database over the [STARNET](https://www.nature.com/articles/s41588-021-00949-1) multi-omics library (26 TB, ~28 000 files, 6 omics layers, ~1 800 participants). The data dictionary exported by this tool maps directly to a SQL schema in Phase 3.
 
 **Lab:** Björkegren Lab, Karolinska Institutet  
-**Project:** BEAT-IT — plasma proteomic blood test for obstructive CAD
