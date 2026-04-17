@@ -1,4 +1,5 @@
 _generate_report_source.py
+# vendor/ is intentionally tracked (offline Reveal.js)
 *.png
 .DS_Store
 __pycache__/
