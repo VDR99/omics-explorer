@@ -1,0 +1,5 @@
+_generate_report_source.py
+*.png
+.DS_Store
+__pycache__/
+.ipynb_checkpoints/
