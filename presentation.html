@@ -35,13 +35,13 @@
   }
 
   /* stat cards */
-  .stat-row { display: flex; gap: 18px; justify-content: center; margin: 22px 0; }
+  .stat-row { display: flex; gap: 14px; justify-content: center; margin: 18px 0; }
   .stat-card {
-    background: #fff; border-radius: 10px; padding: 16px 22px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.08); text-align: center; min-width: 110px;
+    background: #fff; border-radius: 10px; padding: 20px 26px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08); text-align: center; min-width: 120px;
   }
-  .stat-card .val { font-size: 1.8em; font-weight: 700; color: var(--accent); line-height: 1; }
-  .stat-card .lbl { font-size: .62em; color: #888; margin-top: 4px; }
+  .stat-card .val { font-size: 2.2em; font-weight: 700; color: var(--accent); line-height: 1; }
+  .stat-card .lbl { font-size: .65em; color: #888; margin-top: 6px; }
 
   /* two-column layout */
   .cols { display: flex; gap: 32px; align-items: flex-start; }
@@ -53,10 +53,10 @@
   /* mvp box */
   .mvp-box {
     background: var(--light); border-left: 5px solid var(--accent);
-    border-radius: 0 8px 8px 0; padding: 14px 20px; margin: 14px 0;
+    border-radius: 0 8px 8px 0; padding: 16px 22px; margin: 14px 0;
     text-align: left;
   }
-  .mvp-box p { margin: 0; font-size: .76em; }
+  .mvp-box p { margin: 0; font-size: .84em; line-height: 1.6; }
 
   /* roadmap table */
   .roadmap { border-collapse: collapse; width: 100%; font-size: .72em; }
@@ -74,16 +74,17 @@
   .challenge-box p  { margin: 0; font-size: .72em; }
 
   /* 90/10 bar */
-  .split-bar { display: flex; border-radius: 6px; overflow: hidden; height: 28px; margin: 12px 0; }
+  .split-bar { display: flex; border-radius: 6px; overflow: hidden; height: 44px; margin: 20px 0; }
   .split-90 { flex: 9; background: var(--mid); display: flex; align-items: center;
-               justify-content: center; color: #fff; font-size: .72em; font-weight: 700; }
+               justify-content: center; color: #fff; font-size: .88em; font-weight: 700; }
   .split-10 { flex: 1; background: var(--accent); display: flex; align-items: center;
-               justify-content: center; color: #fff; font-size: .72em; font-weight: 700; }
+               justify-content: center; color: #fff; font-size: .88em; font-weight: 700; }
 
   /* demo iframe */
   .demo-frame {
-    width: 100%; height: 460px; border: none;
+    width: 100%; height: 580px; border: none;
     border-radius: 8px; box-shadow: 0 3px 16px rgba(0,0,0,.12);
+    display: block;
   }
 
   /* title slide */
@@ -257,12 +258,8 @@
           <strong>→ Hours of manual file hunting across 28 000 files on AWS S3.</strong>
         </p>
       </div>
-      <div class="mvp-box" style="border-color:#e6ac00;background:#fff9e6;margin-top:10px;">
-        <p>
-          "I found a new batch correction method — what STARNET data does it need as input?"<br><br>
-          <strong>→ No way to answer without reading the paper and manually checking file by file.</strong>
-        </p>
-      </div>
+
+
     </div>
     <div class="col">
       <h3>The goal — two queries that should just work</h3>
@@ -297,17 +294,7 @@
   <div class="cols" style="margin-top:18px;align-items:center;">
     <div class="col" style="flex:1.1;">
       <p style="margin-bottom:10px;">The full goal is a 26 TB database pipeline. Scoping to the minimum useful thing:</p>
-      <div class="mvp-box">
-        <p>
-          <strong>Given:</strong> one omics file I know well<br>
-          <strong>Output:</strong> automatic QC report that a non-expert can read<br>
-          <strong>Bonus:</strong> exports a structured JSON that is the first step toward a SQL schema
-        </p>
-      </div>
-      <p style="margin-top:14px;">Why this file? <strong>STARNET plasma proteomics</strong> —
-        532 participants × 1 005 Olink proteins. I can narrate every column with domain authority.</p>
     </div>
-
     <div class="col" style="flex:.9;">
       <!-- scope narrowing funnel -->
       <svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;font-family:-apple-system,sans-serif;">
@@ -342,72 +329,13 @@
      ══════════════════════════════════════════════════════════════════════════ -->
 <section>
   <span class="slide-label">Demo</span>
-  <div style="margin-bottom:10px;">
+  <div style="margin-bottom:16px;">
     <h2 style="display:inline-block;">Live report — <code style="font-size:.8em;background:#f0f0f0;padding:2px 8px;border-radius:4px;">generate_report(FILE_PATH)</code></h2>
+    <span style="display:inline-block;margin-left:18px;font-size:.72em;color:#888;vertical-align:middle;">
+      One cell &nbsp;·&nbsp; fully offline &nbsp;·&nbsp; click <strong>&#9432;</strong> to expand explanations
+    </span>
   </div>
-  <p style="margin:0 0 10px;font-size:.72em;color:#888;">
-    One cell. Full pipeline runs automatically — loads, describes, interprets, flags, plots, opens.
-    Click the <strong>&#9432; What does this mean?</strong> boxes to expand explanations.
-  </p>
   <iframe class="demo-frame" src="omics_explorer_report.html"></iframe>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     SLIDE 6 — FUTURE STEPS
-     ══════════════════════════════════════════════════════════════════════════ -->
-<section>
-  <span class="slide-label">Future Steps</span>
-  <h2>From single-file QC to full database pipeline</h2>
-
-  <table class="roadmap" style="margin-top:16px;">
-    <thead>
-      <tr><th>Phase</th><th>What</th><th>Key function</th><th>Unlocks</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="done">v1 ✓</span></td>
-        <td>Single file QC + data dictionary</td>
-        <td><code>generate_report()</code></td>
-        <td>Understand any omics file instantly</td>
-      </tr>
-      <tr>
-        <td>v2</td>
-        <td>Interactive report + platform detection</td>
-        <td><code>detect_platform()</code></td>
-        <td>RNA-seq, metabolomics, raw Olink files</td>
-      </tr>
-      <tr>
-        <td>v3</td>
-        <td>Schema comparison + name harmonization</td>
-        <td><code>compare_schemas()</code></td>
-        <td>Map STARNET ↔ UKB protein names (757→811 gap)</td>
-      </tr>
-      <tr>
-        <td>v4</td>
-        <td>Batch QC + correction</td>
-        <td><code>correct_batch()</code></td>
-        <td>ComBat, ComBatSeq across cohorts</td>
-      </tr>
-      <tr>
-        <td>v5</td>
-        <td>SQL schema generation</td>
-        <td><code>generate_sql_schema()</code></td>
-        <td>AWS Athena queryable database</td>
-      </tr>
-      <tr>
-        <td>v6</td>
-        <td>External dataset auto-pipeline</td>
-        <td><code>ingest_external()</code></td>
-        <td>PRECAD2, KORA, public GEO cohorts</td>
-      </tr>
-      <tr>
-        <td>v8</td>
-        <td>Claude API column interpretation</td>
-        <td><code>interpret_columns_llm()</code></td>
-        <td>"Explain this dataset to a cardiologist"</td>
-      </tr>
-    </tbody>
-  </table>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════════
@@ -428,35 +356,7 @@
     </p>
   </div>
 
-  <div class="challenge-row">
-    <div class="challenge-box">
-      <h4>Challenge — context coordination</h4>
-      <p>
-        I have dozens of files across my laptop with project context: STARNET schemas,
-        BEAT-IT analysis code, AWS infrastructure notes, cohort documentation.
-        Getting Claude to understand the right context for each task was the hardest part —
-        not writing the code itself.
-      </p>
-    </div>
-    <div class="challenge-box">
-      <h4>Solution — structured vault</h4>
-      <p>
-        Built a persistent Obsidian knowledge base (architecture docs, session logs, decision records).
-        Every session starts with <code>/load</code> to sync context.
-        Omics Explorer is now cross-linked to STARNET and BEAT-IT architecture docs —
-        it knows where it fits in the bigger pipeline.
-      </p>
-    </div>
-    <div class="challenge-box">
-      <h4>Lesson — the 90/10 model</h4>
-      <p>
-        LLM coding is not "write code for me." It is an iterative loop:
-        explain context → get output → review → correct → repeat.
-        The quality of the output is almost entirely determined by the quality of the context.
-        <strong>Prompting is the skill.</strong>
-      </p>
-    </div>
-  </div>
+  
 </section>
 
 </div>
@@ -471,7 +371,7 @@
     controls: true,
     progress: true,
     slideNumber: 'c/t',
-    center: false,
+    center: true,
     margin: 0.04,
     width: 1280,
     height: 800,
