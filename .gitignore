@@ -4,3 +4,4 @@ _generate_report_source.py
 .DS_Store
 __pycache__/
 .ipynb_checkpoints/
+vendor/.Rhistory
