@@ -5,3 +5,7 @@ _generate_report_source.py
 __pycache__/
 .ipynb_checkpoints/
 vendor/.Rhistory
+
+# STARNET data outputs — sensitive IP, never commit
+starnet_data_dictionary.json
+omics_explorer_report.html
