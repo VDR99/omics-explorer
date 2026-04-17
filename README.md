@@ -27,9 +27,8 @@ generate_report(FILE_PATH)
 | File | Description |
 |------|-------------|
 | `omics_explorer.ipynb` | Main notebook — function definitions + step-by-step execution |
-| `omics_explorer_report.html` | Pre-generated demo report (STARNET proteomics) |
-| `starnet_data_dictionary.json` | Exported data dictionary from demo run |
-| `presentation.html` | NOD BC2 presentation (Reveal.js) |
+| `presentation.html` | NOD BC2 presentation (Reveal.js, runs offline) |
+| `vendor/` | Bundled Reveal.js — no internet required |
 
 ## Correcting misclassified columns
 
@@ -42,21 +41,3 @@ OVERRIDES = {
 ```
 
 Valid types: `protein_npx`, `sample_metadata`, `categorical_metadata`, `unknown`
-
-## Roadmap
-
-| Phase | Scope |
-|-------|-------|
-| v1 (now) | Single CSV/Excel, Olink NPX, offline rule-based interpretation |
-| v2 | Raw Olink file support, platform detection, Streamlit wrapper |
-| v3 | Schema comparison across datasets, protein name harmonization |
-| v4 | Batch QC + correction (ComBat, ComBatSeq) |
-| v5 | SQL schema generation → AWS Athena |
-| v6 | External dataset auto-ingestion pipeline (PRECAD2, KORA, GEO) |
-| v8 | Claude API column interpretation |
-
-## Context
-
-Built as the MVP layer of a larger goal: a queryable SQL database over the [STARNET](https://www.nature.com/articles/s41588-021-00949-1) multi-omics library (26 TB, ~28 000 files, 6 omics layers, ~1 800 participants). The data dictionary exported by this tool maps directly to a SQL schema in Phase 3.
-
-**Lab:** Björkegren Lab, Karolinska Institutet  
